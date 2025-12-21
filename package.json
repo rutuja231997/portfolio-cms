@@ -22,17 +22,19 @@
     "react-responsive-carousel": "^3.2.23",
     "react-simple-typewriter": "^5.0.1",
     "react-social-icons": "^6.25.0",
+    "react-tooltip": "^5.30.0",
     "sanity": "^4.21.1",
     "styled-components": "^6.1.19"
   },
   "devDependencies": {
-    "@tailwindcss/postcss": "^4",
+    "@tailwindcss/postcss": "^4.1.18",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
+    "autoprefixer": "^10.4.23",
     "eslint": "^9",
     "eslint-config-next": "16.0.10",
-    "tailwindcss": "^4",
+    "tailwindcss": "^4.1.18",
     "typescript": "^5"
   }
 }

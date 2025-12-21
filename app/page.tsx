@@ -16,6 +16,7 @@ import getProject from "@/utils/getProject";
 import getSocial from "@/utils/getSocial";
 import { getSkills } from "@/utils/getSkills";
 import { getPageInfo } from "@/utils/getPageInfo";
+
  
 export const revalidate = 10;
 
@@ -40,6 +41,7 @@ export default async function Home() {
       <section id="hero" className="snap-start">
         <Hero pageInfo={pageInfo} />
       </section>
+      
       <section id="about" className="snap-center">
         <About pageInfo={pageInfo} />
       </section>

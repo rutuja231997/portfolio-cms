@@ -38,21 +38,21 @@ function Contact({ pageInfo }: Props) {
           </span>
         </h4>
 
-        <div className="space-y-5 md:space-y-4">
-          <div className="flex items-center space-x-5 justify-center">
-            <PhoneIcon className="text-[#F7AB0A] h-7 w-7 animate-pulse" />
-            <p className="text-lg md:text-xl">{pageInfo?.phoneNumber}</p>
-          </div>
-
-          <div className="flex items-center space-x-5 justify-center">
-            <EnvelopeIcon className="text-[#F7AB0A] h-7 w-7 animate-pulse" />
-            <p className="text-lg md:text-xl">{pageInfo?.email}</p>
-          </div>
-
-          <div className="flex items-start md:space-x-5 sm:space-x-3 space-x-3 justify-center max-w-[90vw]">
-            <MapPinIcon className="text-[#F7AB0A] h-7 w-7 animate-pulse" />
-            <p className="text-lg md:text-xl wrap-break-word text-center">{pageInfo?.address}</p>
-          </div>
+        <div className="w-full py-10 flex justify-center">
+          <ul className="flex flex-col space-y-6 w-full max-w-3xl px-6">
+            <li className="flex items-center justify-center px-15 space-x-5">
+                <PhoneIcon className="text-[#F7AB0A] h-7 w-7 animate-pulse" />
+              <span className="text-base sm:text-lg md:text-xl">{pageInfo?.phoneNumber}</span>
+            </li>            
+            <li className="flex space-x-5 items-center justify-center">
+               <EnvelopeIcon className="text-[#F7AB0A] h-7 w-7 animate-pulse" />
+              <span className="text-base sm:text-lg md:text-xl">{pageInfo?.email}</span>
+            </li>            
+            <li className="flex items-center px-5 space-x-5 justify-center">
+              <MapPinIcon className="shrink-0 text-[#F7AB0A] h-7 w-7 animate-pulse" />
+              <span className="text-base sm:text-lg md:text-xl wrap-break-word">{pageInfo?.address}</span>
+            </li>
+          </ul>
         </div>
 
         <form

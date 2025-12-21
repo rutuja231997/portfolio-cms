@@ -2,13 +2,24 @@
 
 @layer components {
   .heroButton {
-    @apply px-6 py-2 border border-[#242424] rounded-full uppercase text-sm tracking-widest text-gray-500 transition-all hover:border-[#F7AB0A]/40 hover:text-[#F7AB0A]/40;
+    @apply px-3 py-1 md:px-6 md:py-2 border border-[#242424] rounded-full uppercase text-xs md:text-sm tracking-widest text-gray-500 transition-all hover:border-[#F7AB0A]/40 hover:text-[#F7AB0A]/40;
   }
 }
 
 .contactInput {
   @apply w-full outline-none bg-slate-400/10 rounded-sm border-b px-3 py-2 sm:px-4 sm:py-3 md:px-6 md:py-4 border-[#242424] text-gray-500 placeholder-gray-500 transition-all focus:border-[#F7AB0A]/40 focus:text-white hover:border-[#F7AB0A]/40;
 }
+
+@theme{
+  --breakpoint-xs: 320px;
+  --breakpoint-phone-sm: 375px;
+  --breakpoint-phone: 425px ;
+}
+
+/* globals.css */
+@custom-variant phone-only (@media (width >= 425px) and (width <= 767px));
+
+
 
 /* spinner code */
 @keyframes ldio-bu6mgqsy1cr {

@@ -7,10 +7,20 @@ import BackgroundCircle from "./BackgroundCircle";
 
 import { PageInfo } from "@/types/types";
 import { urlFor } from "@/sanity/lib/image";
+import {motion} from "framer-motion";
+import { useState } from "react";
 
 type Props = { pageInfo: PageInfo };
 
+const nav = [{id:"1", href:"#about", title:"About"}, 
+             {id:"2", href:"#experience", title:"Experience"}, 
+             {id:"3", href:"#skills", title:"Skills"}, 
+             {id:"4", href:"#contact", title:"Contact"}]
+
 export default function Hero({ pageInfo }: Props) {
+
+  const [activeButton, setActiveButton] = useState<string | null>(null);
+
   const [text] = useTypewriter({
     words: [
       ` Hi, I'm ${pageInfo?.name}`,
@@ -22,40 +32,52 @@ export default function Hero({ pageInfo }: Props) {
   });
   return (
     <div className="h-screen flex flex-col space-y-8 items-center justify-center text-center overflow-hidden">
-      <BackgroundCircle />
-      <div className="relative rounded-full mx-auto overflow-hidden h-32 w-32">
-        <Image
-          src={urlFor(pageInfo.heroImage).url()}
-          alt={pageInfo.heroImage.alt}
-          className="object-cover"
-          fill
-        />
-      </div>
-      <div className="z-20">
-        <h2 className="text-sm uppercase text-gray-500 pb-2 tracking-[15px]">
-         {pageInfo.role}
-        </h2>
-        <h1>
-          <span className="text-5xl lg:text-6xl font-semibold px-10">
-            {text}
-          </span>
-          <Cursor cursorColor="#F7AB0A" />
-        </h1>
-        <div className="pt-5">
-          <Link href="#about">
-            <button className="heroButton">About</button>
-          </Link>
-          <Link href="#experience">
-            <button className="heroButton">Experience</button>
-          </Link>
-          <Link href="#skills">
-            <button className="heroButton">Skills</button>
-          </Link>
-          <Link href="#projects">
-            <button className="heroButton">Projects</button>
-          </Link>
+       
+       <div className="relative flex flex-col items-center justify-center">
+          <BackgroundCircle />
+
+          {/* hero buttons */}
+          <div className="absolute mb-60 sm:mb-0 sm:mt-100 order-1 sm:order-3 p-1 sm:p-2 flex flex-row justify-center items-center space-x-2">
+            {nav.map((n)=>{
+
+              const isActive = activeButton === n.id;
+
+              return (
+              <motion.div
+                key={n.id}
+                whileHover={{ scale:1.1 }}
+                whileTap={{ scale:0.95 }}
+                >
+                <Link key={n.id} href={n.href}>
+                  {/* <button className={`heroButton cursor-pointer ${activeButton ? "heroButton" : ""}`} onClick={()=>setActiveButton(n.id)}>{n.title}</button> */}
+                  <button onClick={()=>setActiveButton(n.id)} className={`heroButton ${isActive ? "border-[#F7AB0A]/40 text-[#F7AB0A]/40" : ""}`}>{n.title}</button>
+                </Link>
+              </motion.div>
+              )
+            })}
+          </div>
+          
+          <div className="absolute order-2 sm:order-1 rounded-full overflow-hidden md:h-32 md:w-32 sm:h-28 sm:w-28 h-22 w-22">
+            <Image
+              src={urlFor(pageInfo.heroImage).url()}
+              alt={pageInfo.heroImage.alt}
+              className="object-cover"
+              fill
+            />
+          </div>
+
+        <div className="absolute order-3 sm:order-2 sm:mt-60 mt-50 space-y-2 sm:space-y-0 ">
+          <h2 className="text-xs md:text-sm uppercase text-gray-500 p-0 sm:p-2 tracking-[8px] md:tracking-[15px]">
+              {pageInfo.role}
+          </h2>
+          <h1 className="text-xl phone:text-2xl sm:text-3xl md:text-5xl font-semibold p-0 sm:p-2">
+            <span > {text} </span>
+            <Cursor cursorColor="#F7AB0A"/>
+          </h1>
         </div>
-      </div>
+       </div>
+       
+
     </div>
   );
 }
