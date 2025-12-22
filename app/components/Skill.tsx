@@ -26,7 +26,7 @@ function Skill({ directionLeft, skill, active, onActivate }: Props) {
           src={urlFor(skill.image).url()}
           alt={skill.image.alt}
           key={skill._id}
-          className="rounded-full border border-gray-500 object-cover  w-22 h-22 md:w-24 md:h-24 xl:w-26 xl:h-26  filter group-even-hover:grayscale transition duration-300 ease-out"
+          className="rounded-full border border-gray-500 object-cover w-18 h-18 sm:w-22 sm:h-22 md:w-24 md:h-24 xl:w-26 xl:h-26  filter group-even-hover:grayscale transition duration-300 ease-out"
         ></motion.img>
 
         {/* hover overlay */}

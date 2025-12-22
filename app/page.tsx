@@ -17,10 +17,11 @@ import getSocial from "@/utils/getSocial";
 import { getSkills } from "@/utils/getSkills";
 import { getPageInfo } from "@/utils/getPageInfo";
 
- 
-export const revalidate = 10;
 
 export default async function Home() {
+
+  await new Promise((resolve)=>setTimeout(resolve, 3000))
+
 
   const pageInfo = await getPageInfo();
   const experience = await getExperience();
@@ -31,7 +32,7 @@ export default async function Home() {
   if(!pageInfo) return null;
 
   return (
-    <div className="bg-[rgb(36,36,36)] text-white h-screen snap-y snap-mandatory overflow-y-scroll overflow-x-hidden z-0 scrollbar scrollbar-track-gray-400/20 scrollbar-thumb-[#F7AB0A]/80">
+    <div className="bg-[rgb(15,14,14)] text-white h-screen snap-y snap-mandatory overflow-y-scroll overflow-x-hidden z-0 scrollbar scrollbar-track-gray-400/20 scrollbar-thumb-[#F7AB0A]/80">
       <Head>
         <title>{pageInfo?.name}</title>
       </Head>

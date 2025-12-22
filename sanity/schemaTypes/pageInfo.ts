@@ -49,6 +49,14 @@ export default defineType({
             ]
         }),
         defineField({
+            name: "resume",
+            title: "Resume",
+            type:"file",
+            options: {
+                accept: ".pdf, .doc, .docx"
+            }
+        }),
+        defineField({
             name: 'phoneNumber',
             title: 'PhoneNumber',
             type: 'string'

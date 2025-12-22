@@ -12,6 +12,7 @@ export async function getPageInfo(){
         phoneNumber,
         email,
         address,
+        resume { asset->{ url }},
         socials[]->{
             _id,
             title,

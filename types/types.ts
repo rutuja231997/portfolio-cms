@@ -44,5 +44,6 @@ export type PageInfo = {
     phoneNumber: string,
     email: string,
     address: string,
-    socials: Social[]
+    socials: Social[],
+    resume?: { asset?: { url:string }}
 }

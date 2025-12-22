@@ -60,7 +60,8 @@ export default function Header({ socials }: Props) {
                       key={social._id}
                       url={social.url}
                       fgColor="#F7ab0a"
-                      bgColor="gray" 
+                      bgColor="#3b3333" 
+                      className="cursor-pointer"
                     />
                 </motion.div>
               

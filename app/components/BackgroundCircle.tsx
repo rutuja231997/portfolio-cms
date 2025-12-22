@@ -25,19 +25,19 @@ export default function BackgroundCircle() {
         className="absolute inset-0 flex items-center justify-center"
       >
         {/* Outer purple border */}
-        <div className="absolute w-[90%] h-[90%] rounded-full border border-[#333333]" />
+        <div className="absolute w-[90%] h-[90%] rounded-full border-2 border-[#333333]" />
 
         {/* Yellow pulse */}
-        <div className="absolute w-[70%] h-[70%] rounded-full border border-[#F7AB0A] opacity-20 animate-pulse" />
+        <div className="absolute w-[70%] h-[70%] rounded-full border-2 border-[#F7AB0A] opacity-20 animate-pulse" />
 
         {/* Red ring */}
-        <div className="absolute w-[50%] h-[50%] rounded-full border border-[#333333]" />
+        <div className="absolute w-[50%] h-[50%] rounded-full border-2 border-[#333333]" />
 
         {/* Green ring */}
-        <div className="absolute w-[30%] h-[30%] rounded-full border border-[#333333]" />
+        <div className="absolute w-[30%] h-[30%] rounded-full border-2 border-[#333333]" />
 
         {/* Inner ping */}
-        <div className="absolute w-[30%] h-[30%] rounded-full border border-[#F7AB0A] animate-ping" />
+        <div className="absolute w-[30%] h-[30%] rounded-full border-2 border-[#F7AB0A] animate-ping" />
       </motion.div>
     </div>
   );

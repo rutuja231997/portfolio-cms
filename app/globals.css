@@ -2,7 +2,7 @@
 
 @layer components {
   .heroButton {
-    @apply px-3 py-1 md:px-6 md:py-2 border border-[#242424] rounded-full uppercase text-xs md:text-sm tracking-widest text-gray-500 transition-all hover:border-[#F7AB0A]/40 hover:text-[#F7AB0A]/40;
+    @apply px-3 py-1 md:px-6 md:py-2 rounded-full border border-[rgb(15,14,14)] uppercase xs:text-[8px] phone:text-xs phone-sm:text-xs sm:text-sm md:text-sm tracking-widest text-white transition-all hover:border-[#F7AB0A]/80 hover:text-[#F7AB0A]/60;
   }
 }
 
@@ -94,3 +94,56 @@
 .ldio-bu6mgqsy1cr div {
   box-sizing: content-box;
 }
+
+
+/* globals.css */
+
+.galaxy-wrapper {
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+  z-index: -1;
+}
+
+.galaxy-bg {
+  position: absolute;
+  width: 120%;
+  height: 120%;
+  background-image: url("/black-galaxy-2.jpg");
+  background-size: cover;
+  background-position: center;
+  animation: galaxyDrift 60s ease-in-out infinite alternate;
+}
+
+.galaxy-bg-animated {
+  position: absolute;
+  inset: -10%;
+  background-image: url("/galaxy-12.jpg");
+  background-size: cover;
+  background-position: center;
+  animation: galaxyDrift 60s ease-in-out infinite alternate;
+}
+
+@keyframes galaxyDrift {
+  0% {
+    transform: translate(0px, 0px) scale(1);
+  }
+  50% {
+    transform: translate(-40px, -30px) scale(1.05);
+  }
+  100% {
+    transform: translate(40px, 20px) scale(1.1);
+  }
+}
+
+.far {
+  opacity: 0.99;
+  animation-duration: 90s;
+}
+
+.near {
+  opacity: 0.99;
+  animation-duration: 45s;
+}
+
+

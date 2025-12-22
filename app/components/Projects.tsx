@@ -25,7 +25,7 @@ function Projects({ projects }: Props) {
           Projects
         </h3>
         <div className="relative top-4 w-full snap-x snap-mandatory z-20 ">
-          <div className="w-full absolute top-[30%] bg-[#F7AB0A]/10 left-0 h-125 -skew-y-12"></div>
+          <div className="w-full absolute top-[30%] bg-[#F7AB0A]/5 left-0 h-125 -skew-y-12"></div>
           <Carousel
             selectedItem={activeSlide} // Set the active slide based on the state
             onChange={(index) => setActiveSlide(index)} // Update activeSlide state when the slide changes
@@ -36,7 +36,7 @@ function Projects({ projects }: Props) {
             autoPlay={true} // Enable auto-play
             interval={5000} // Set auto-play interval to 5 seconds
             stopOnHover={false} // Disable auto-play pause on hover
-            className="bg-[rgb(36,36,36)] "
+            className="bg-[rgb(15,14,14)] "
           >
             {projects?.map((project) => (
               <div
