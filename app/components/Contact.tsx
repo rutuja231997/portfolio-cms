@@ -48,7 +48,7 @@ function Contact({ pageInfo }: Props) {
                <EnvelopeIcon className="text-[#F7AB0A] h-7 w-7 animate-pulse" />
               <span className="text-base sm:text-lg md:text-xl">{pageInfo?.email}</span>
             </li>            
-            <li className="flex items-center space-x-5 phone:px-12 phone-sm:px-6 justify-center">
+            <li className="flex items-center space-x-5 phone:px-11 phone-sm:px-4.5 xs:px-3 justify-center">
               <MapPinIcon className="shrink-0 text-[#F7AB0A] h-7 w-7 animate-pulse" />
               <span className="text-base sm:text-lg md:text-xl wrap-break-word">{pageInfo?.address}</span>
             </li>

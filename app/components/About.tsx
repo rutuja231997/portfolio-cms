@@ -15,7 +15,7 @@ function About({ pageInfo }: Props) {
       transition={{ duration: 1.5 }}
       className="w-full flex flex-col relative min-h-screen text-center md:text-left lg:flex-row max-w-7xl px-6 md:px-10 justify-evenly lg:space-x-20 mx-auto items-center"
     >
-      <h3 className="absolute top-2 md:top-2 lg:top-15 uppercase tracking-[20px] text-gray-500 text-base sm:text-lg md:text-xl xl:text-2xl">
+      <h3 className="absolute top-10 md:top-5 lg:top-15 uppercase tracking-[20px] text-gray-500 text-base sm:text-lg md:text-xl xl:text-2xl">
         About
       </h3>
 
@@ -25,7 +25,7 @@ function About({ pageInfo }: Props) {
         whileInView={{ opacity: 1, x: 0 }}
         viewport={{ once: true }}
         src={urlFor(pageInfo?.profilePic).url()}
-        className="mt-10 xl:mt-0 md:mb-0 shrink-0 xs:w-28 xs:h-28 w-38 h-38 rounded-full object-cover md:rounded-full md:w-50 md:h-50 lg:w-62.5 lg:h-62.5 "
+        className="mt-20 lg:mt-0 md:mb-0 shrink-0 xs:w-28 xs:h-28 phone:w-38 phone:h-38 rounded-full object-cover md:rounded-full sm:w-50 sm:h-50 lg:w-62.5 lg:h-62.5 "
       />
 
       <div className="space-y-4 sm:space-y-2 md:space-y-8 md:p-4">
