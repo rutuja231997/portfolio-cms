@@ -30,7 +30,7 @@ function Contact({ pageInfo }: Props) {
         Contact
       </h3>
 
-      <div className="flex flex-col justify-center items-center space-y-8 md:space-y-10 mt-20">
+      <div className="flex flex-col justify-center items-center space-x-6 sm:space-y-8 md:space-y-10 mt-20">
         <h4 className="max-w-[90vw] text-xl md:text-3xl xl:text-4xl font-semibold text-center">
           I have got just what you need.{" "}
           <span className="block sm:inline decoration-[#F7AB0A]/50 underline">
@@ -40,7 +40,7 @@ function Contact({ pageInfo }: Props) {
 
         <div className="w-full py-10 flex justify-center">
           <ul className="flex flex-col space-y-6 w-full max-w-3xl px-6">
-            <li className="flex items-center justify-center px-15 space-x-5">
+            <li className="flex items-center justify-center space-x-5">
                 <PhoneIcon className="text-[#F7AB0A] h-7 w-7 animate-pulse" />
               <span className="text-base sm:text-lg md:text-xl">{pageInfo?.phoneNumber}</span>
             </li>            
@@ -48,7 +48,7 @@ function Contact({ pageInfo }: Props) {
                <EnvelopeIcon className="text-[#F7AB0A] h-7 w-7 animate-pulse" />
               <span className="text-base sm:text-lg md:text-xl">{pageInfo?.email}</span>
             </li>            
-            <li className="flex items-center px-5 space-x-5 justify-center">
+            <li className="flex items-center space-x-5 phone:px-12 phone-sm:px-6 justify-center">
               <MapPinIcon className="shrink-0 text-[#F7AB0A] h-7 w-7 animate-pulse" />
               <span className="text-base sm:text-lg md:text-xl wrap-break-word">{pageInfo?.address}</span>
             </li>

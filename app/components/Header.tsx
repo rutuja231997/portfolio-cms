@@ -7,13 +7,15 @@ import {Bars3Icon} from "@heroicons/react/24/outline";
 
 import Link from "next/link";
 import { Social } from "@/types/types";
-import { useState } from "react";
+import { useState, useRef } from "react";
+import Popover from "./Popover";
 
 type Props = { socials: Social[] };
 
 export default function Header({ socials }: Props) {
   
   const [open, setOpen] = useState(false);
+  const menuRef = useRef<HTMLDivElement>(null);
 
   return (
     <header className="p-3 sticky top-0 flex items-start justify-between max-w-7xl mx-auto z-20 xl:items-center">
@@ -23,6 +25,7 @@ export default function Header({ socials }: Props) {
         transition={{ duration: 1.5 }}
         className="flex flex-row items-center"
       >
+        {/* desktop socials */}
         <div
           className="hidden lg:flex items-center relative">
           {socials.map((social) => (
@@ -41,15 +44,15 @@ export default function Header({ socials }: Props) {
         
           ))}
         </div>
-
-       <motion.div 
+        {/* mobile socials */}
+        <div className="relative lg:hidden" ref={menuRef}>
+          <motion.div 
           transition={{ type: "spring", stiffness:300 }}
           whileHover={{ scale:1.1, y:-4 }} > 
             <button onClick={()=>setOpen((o)=>!o)} className="cursor-pointer lg:hidden text-[gray]"><Bars3Icon className="h-7 w-7" /></button>
-      </motion.div>
+          </motion.div>
 
-        {open && (
-            <div className="flex flex-col items-center space-y-2 p-2  text-white text-lg md:hidden bg-transparent absolute top-1/2 left-2 mt-4 max-w-xl w-10 rounded-lg">
+          <Popover containerRef={menuRef} isOpen={open} onClose={()=>setOpen(false)}  className="absolute top-1/2 left-2 right-0 mt-4 flex flex-col items-center space-y-2 p-2 rounded-lg">
               {socials.map((social) => {
                 return (
                   <motion.div 
@@ -67,8 +70,9 @@ export default function Header({ socials }: Props) {
               
                 )
               })}
-            </div>
-        )}
+          </Popover>
+        </div>
+
       </motion.div>
 
       <Link href="#contact">

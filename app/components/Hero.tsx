@@ -48,7 +48,6 @@ export default function Hero({ pageInfo }: Props) {
                 whileTap={{ scale:0.95 }}
                 >
                 <Link key={n.id} href={n.href}>
-                  {/* <button className={`heroButton cursor-pointer ${activeButton ? "heroButton" : ""}`} onClick={()=>setActiveButton(n.id)}>{n.title}</button> */}
                   <button onClick={()=>setActiveButton(n.id)} className={`heroButton cursor-pointer ${isActive ? "border-[#F7AB0A]/40 text-[#F7AB0A]/40" : ""}`}>{n.title}</button>
                 </Link>
               </motion.div>
