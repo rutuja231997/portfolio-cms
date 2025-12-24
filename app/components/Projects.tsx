@@ -31,17 +31,17 @@ function Projects({ projects }: Props) {
             onChange={(index) => setActiveSlide(index)} // Update activeSlide state when the slide changes
             showThumbs={false} // Hide the thumbnails
             showStatus={false} // Hide the status bar
-            showIndicators={true} // Hide the slide indicators
+            showIndicators={false} // Hide the slide indicators
             infiniteLoop={true} // Enable infinite loop
             autoPlay={true} // Enable auto-play
             interval={5000} // Set auto-play interval to 5 seconds
             stopOnHover={false} // Disable auto-play pause on hover
-            className="bg-[rgb(15,14,14)] "
+            className="bg-[rgb(15,14,14)] w-full max-w-full h-[420px] sm:h-[480px] md:h-[520px] lg:h-[600px]"
           >
             {projects?.map((project) => (
               <div
                 key={project._id}
-                className="w-screen shrink-0 snap-center flex flex-col space-y-5 items-center justify-center p-2 min-h-screen hover:opacity-100 opacity-40 cursor-pointer transition-opacity duration-200"
+                className="shrink-0 snap-center flex flex-col space-y-5 items-center justify-start pt-20  hover:opacity-100 opacity-40 cursor-pointer transition-opacity duration-200"
               >
                 <Link href={project?.linkToBuild}>
                   <motion.img
@@ -56,10 +56,8 @@ function Projects({ projects }: Props) {
                 </Link>
 
                 <div className="space-y-2 px-0 md:px-10 max-w-6xl">
-                  <h4 className="text-lg sm:text-2xl md:text-3xl xl:text-4xl font-semibold text-center  text-white">
-                    <span className="underline decoration-[#F7AB0A]/50">
+                  <h4 className="underline decoration-[#F7AB0A]/50 text-lg sm:text-xl md:text-2xl lg:text-3xl font-semibold text-center  text-white">
                       {project?.title}
-                    </span>
                   </h4>
 
                   <div className="flex justify-center items-center w-auto space-x-10">
@@ -81,7 +79,7 @@ function Projects({ projects }: Props) {
                     </div>
                   </div>
 
-                  <div className="text-sm sm:text-base xl:text-lg text-center md:text-left text-white pr-2 max-h-[120px] sm:max-h-[160px] overflow-y-auto md:max-h-none md:overflow-visible">
+                  <div className="text-sm sm:text-base xl:text-lg text-center md:text-left text-white p-0 max-h-[120px] sm:max-h-[160px] overflow-y-auto md:max-h-none overflow-visible">
                     {project?.summary}
                   </div>
                 </div>
