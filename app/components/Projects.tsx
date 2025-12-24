@@ -24,19 +24,19 @@ function Projects({ projects }: Props) {
         <h3 className="text-center absolute top-12 md:top-14 z-30 uppercase tracking-[20px] text-gray-500 text-base sm:text-lg md:text-xl xl:text-2xl">
           Projects
         </h3>
-        <div className="relative top-4 w-full snap-x snap-mandatory z-20 ">
+        <div className="relative flex justify-center items-center top-0 sm:top-20 w-full snap-x snap-mandatory z-20 px-6 sm:px-10">
           <div className="w-full absolute top-[30%] bg-[#F7AB0A]/5 left-0 h-125 -skew-y-12"></div>
           <Carousel
             selectedItem={activeSlide} // Set the active slide based on the state
             onChange={(index) => setActiveSlide(index)} // Update activeSlide state when the slide changes
             showThumbs={false} // Hide the thumbnails
             showStatus={false} // Hide the status bar
-            showIndicators={false} // Hide the slide indicators
+            showIndicators={true} // Hide the slide indicators
             infiniteLoop={true} // Enable infinite loop
             autoPlay={true} // Enable auto-play
             interval={5000} // Set auto-play interval to 5 seconds
             stopOnHover={false} // Disable auto-play pause on hover
-            className="bg-[rgb(15,14,14)] w-full max-w-full h-[420px] sm:h-[480px] md:h-[520px] lg:h-[600px]"
+            className="bg-[rgb(15,14,14)] w-full max-w-full h-105 sm:h-120 md:h-130 lg:h-150 lg:w-300"
           >
             {projects?.map((project) => (
               <div
@@ -51,16 +51,17 @@ function Projects({ projects }: Props) {
                     viewport={{ once: true }}
                     src={urlFor(project.image).url()}
                     alt={project.image.alt}
-                    className="shrink-0 h-42 w-60 md:h-56 md:w-96"
+                    className="shrink-0  xs:h-26 xs:w-32 phone-sm:w-42 phone-sm:h-32 phone:h-32 phone:w-42 sm:h-42 sm:w-60 md:h-56 md:w-96"
                   />
                 </Link>
 
                 <div className="space-y-2 px-0 md:px-10 max-w-6xl">
-                  <h4 className="underline decoration-[#F7AB0A]/50 text-lg sm:text-xl md:text-2xl lg:text-3xl font-semibold text-center  text-white">
+                  <div className="flex flex-row space-x-5 justify-center items-center">
+                    <h4 className="underline decoration-[#F7AB0A]/50 text-lg sm:text-xl md:text-2xl lg:text-3xl font-semibold text-center  text-white">
                       {project?.title}
-                  </h4>
+                    </h4>
 
-                  <div className="flex justify-center items-center w-auto space-x-10">
+                    <div className="flex justify-center items-center w-auto space-x-10">
                     <div className="flex float-right space-x-5">
                       {project?.stack.map((stack) => (
                         // eslint-disable-next-line @next/next/no-img-element
@@ -77,9 +78,10 @@ function Projects({ projects }: Props) {
                         <LinkIcon className="h-7 w-7 text-[gray] " />
                       </Link>
                     </div>
+                    </div>
                   </div>
 
-                  <div className="text-sm sm:text-base xl:text-lg text-center md:text-left text-white p-0 max-h-[120px] sm:max-h-[160px] overflow-y-auto md:max-h-none overflow-visible">
+                  <div className="text-sm sm:text-base xl:text-lg text-center md:text-left text-white p-0 max-h-30 sm:max-h-40 overflow-y-auto md:max-h-none overflow-visible">
                     {project?.summary}
                   </div>
                 </div>

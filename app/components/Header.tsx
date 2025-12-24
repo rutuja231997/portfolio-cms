@@ -10,12 +10,23 @@ import { Social } from "@/types/types";
 import { useState, useRef } from "react";
 import Popover from "./Popover";
 
+import {
+  UserIcon,
+  BriefcaseIcon,
+  CodeBracketIcon,
+  WrenchScrewdriverIcon,
+} from "@heroicons/react/24/outline";
+
 type Props = { socials: Social[] };
+
+const nav = [{id:"1", href:"#about", title:"About", Icon:UserIcon}, {id:"2", href:"#experience", title:"Experience", Icon:BriefcaseIcon}, {id:"3", href:"#skills", title:"Skills", Icon:WrenchScrewdriverIcon}, {id:"4", href:"#projects", title:"Projects", Icon:CodeBracketIcon}]
 
 export default function Header({ socials }: Props) {
   
   const [open, setOpen] = useState(false);
   const menuRef = useRef<HTMLDivElement>(null);
+
+    const [activeButton, setActiveButton] = useState<string | null>(null);
 
   return (
     <header className="p-3 sticky top-0 flex items-start justify-between max-w-7xl mx-auto z-20 xl:items-center">
@@ -44,7 +55,7 @@ export default function Header({ socials }: Props) {
         
           ))}
         </div>
-        {/* mobile socials */}
+
         <div className="relative lg:hidden" ref={menuRef}>
           <motion.div 
           transition={{ type: "spring", stiffness:300 }}
@@ -53,25 +64,24 @@ export default function Header({ socials }: Props) {
           </motion.div>
 
           <Popover containerRef={menuRef} isOpen={open} onClose={()=>setOpen(false)}  className="absolute top-1/2 left-2 right-0 mt-4 flex flex-col items-center space-y-2 p-2 rounded-lg">
-              {socials.map((social) => {
+              {nav.map((n) => {
+                 const isActive = activeButton === n.id;
                 return (
                   <motion.div 
-                  key={social._id}
+                  key={n.id}
                   whileHover={{ scale:1.3, y:-2 }} 
                   transition={{ type:"spring", stiffness:300 }}>
-                    <SocialIcon
-                      key={social._id}
-                      url={social.url}
-                      fgColor="#F7ab0a"
-                      bgColor="#3b3333" 
-                      className="cursor-pointer"
-                    />
+                    <Link key={n.id} href={n.href}>
+                        <button onClick={()=>setActiveButton(n.id)} className={`heroButton cursor-pointer ${isActive ? "border-[#F7AB0A]/40 text-[#F7AB0A]/40" : ""}`}><n.Icon className="h-7 w-7"/></button>
+                    </Link>
                 </motion.div>
               
                 )
               })}
           </Popover>
         </div>
+
+
 
       </motion.div>
 

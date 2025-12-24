@@ -32,7 +32,7 @@ export default async function Home() {
   if(!pageInfo) return null;
 
   return (
-    <div className="bg-[rgb(15,14,14)] text-white h-screen snap-y snap-mandatory overflow-y-scroll overflow-x-hidden z-0 scrollbar scrollbar-track-gray-400/20 scrollbar-thumb-[#F7AB0A]/80">
+    <div className="bg-[rgb(15,14,14)] caret-transparent text-white h-screen snap-y snap-mandatory overflow-y-scroll overflow-x-hidden z-0 scrollbar scrollbar-track-gray-400/20 scrollbar-thumb-[#F7AB0A]/80">
       <Head>
         <title>{pageInfo?.name}</title>
       </Head>
@@ -40,7 +40,7 @@ export default async function Home() {
       <Header socials={socials} />
 
       <section id="hero" className="snap-start">
-        <Hero pageInfo={pageInfo} />
+        <Hero pageInfo={pageInfo} socials={socials}/>
       </section>
       
       <section id="about" className="snap-center">
@@ -64,7 +64,7 @@ export default async function Home() {
       </section>
 
       <Link href="#hero">
-        <footer className="sticky bottom-10 w-full cursor-pointer">
+        <footer className="sticky sm:bottom-10 bottom-2  w-full cursor-pointer z-50">
           <div className="flex items-center justify-center">
             <Image
               className="h-10 w-10 rounded-full filter grayscale hover:grayscale-0 cursor-pointer"
