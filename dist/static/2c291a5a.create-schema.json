@@ -1,0 +1,343 @@
+[
+  {
+    "fields": [
+      {
+        "description": "Title of skill",
+        "name": "title",
+        "type": "string"
+      },
+      {
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "min",
+                "constraint": 0
+              },
+              {
+                "flag": "max",
+                "constraint": 100
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "description": "Progress of the skill from 0 to 100%",
+        "name": "progress",
+        "type": "number"
+      },
+      {
+        "options": {
+          "hotspot": true
+        },
+        "fields": [
+          {
+            "description": "describe the image for accessibility",
+            "name": "alt",
+            "type": "string",
+            "title": "Alt text"
+          }
+        ],
+        "name": "image",
+        "type": "image"
+      },
+      {
+        "name": "order",
+        "type": "number"
+      }
+    ],
+    "name": "skills",
+    "type": "document"
+  },
+  {
+    "fields": [
+      {
+        "name": "name",
+        "type": "string"
+      },
+      {
+        "name": "role",
+        "type": "string"
+      },
+      {
+        "options": {
+          "hotspot": true
+        },
+        "fields": [
+          {
+            "description": "describe the image for accessibility",
+            "name": "alt",
+            "type": "string",
+            "title": "Alt text"
+          }
+        ],
+        "name": "heroImage",
+        "type": "image",
+        "title": "heroImage"
+      },
+      {
+        "name": "backgroundInformation",
+        "type": "string",
+        "title": "BackgroundInformation"
+      },
+      {
+        "options": {
+          "hotspot": true
+        },
+        "fields": [
+          {
+            "description": "describe the image for accessibility",
+            "name": "alt",
+            "type": "string",
+            "title": "Alt text"
+          }
+        ],
+        "name": "profilePic",
+        "type": "image",
+        "title": "ProfilePic"
+      },
+      {
+        "options": {
+          "accept": ".pdf, .doc, .docx"
+        },
+        "name": "resume",
+        "type": "file"
+      },
+      {
+        "name": "phoneNumber",
+        "type": "string",
+        "title": "PhoneNumber"
+      },
+      {
+        "name": "email",
+        "type": "string"
+      },
+      {
+        "name": "address",
+        "type": "string"
+      },
+      {
+        "of": [
+          {
+            "to": [
+              {
+                "type": "socials"
+              }
+            ],
+            "type": "reference",
+            "title": "Reference to socials"
+          }
+        ],
+        "name": "socials",
+        "type": "array"
+      }
+    ],
+    "name": "pageInfo",
+    "type": "document",
+    "title": "PageInfo"
+  },
+  {
+    "fields": [
+      {
+        "name": "jobTitle",
+        "type": "string",
+        "title": "JobTitle"
+      },
+      {
+        "options": {
+          "hotspot": true
+        },
+        "fields": [
+          {
+            "description": "describe the image for accessibility",
+            "name": "alt",
+            "type": "string",
+            "title": "Alt text"
+          }
+        ],
+        "name": "companyImage",
+        "type": "image"
+      },
+      {
+        "name": "company",
+        "type": "string"
+      },
+      {
+        "name": "dateStarted",
+        "type": "date",
+        "title": "DateStarted"
+      },
+      {
+        "name": "dateEnded",
+        "type": "date",
+        "title": "DateEnded"
+      },
+      {
+        "name": "isCurrentlyWorkingHere",
+        "type": "boolean",
+        "title": "IsCurrentlyWorkingHere"
+      },
+      {
+        "of": [
+          {
+            "to": [
+              {
+                "type": "skills"
+              }
+            ],
+            "type": "reference",
+            "title": "Reference to skills"
+          }
+        ],
+        "name": "stack",
+        "type": "array"
+      },
+      {
+        "of": [
+          {
+            "type": "string"
+          }
+        ],
+        "name": "points",
+        "type": "array"
+      }
+    ],
+    "name": "experiences",
+    "type": "document"
+  },
+  {
+    "fields": [
+      {
+        "description": "platform for social media",
+        "name": "title",
+        "type": "string",
+        "title": "title"
+      },
+      {
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "uri",
+                "constraint": {
+                  "options": {
+                    "scheme": [
+                      "/^http$/",
+                      "/^https$/"
+                    ],
+                    "allowRelative": false,
+                    "relativeOnly": false,
+                    "allowCredentials": false
+                  }
+                }
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "name": "url",
+        "type": "url"
+      }
+    ],
+    "name": "socials",
+    "type": "document"
+  },
+  {
+    "fields": [
+      {
+        "description": "Title of the project",
+        "name": "title",
+        "type": "string",
+        "title": "title"
+      },
+      {
+        "options": {
+          "hotspot": true
+        },
+        "fields": [
+          {
+            "description": "describe the image for accessibility",
+            "name": "alt",
+            "type": "string",
+            "title": "All text"
+          }
+        ],
+        "name": "image",
+        "type": "image"
+      },
+      {
+        "name": "summary",
+        "type": "text"
+      },
+      {
+        "of": [
+          {
+            "to": [
+              {
+                "type": "skills"
+              }
+            ],
+            "type": "reference",
+            "title": "Reference to skills"
+          }
+        ],
+        "name": "stack",
+        "type": "array"
+      },
+      {
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "uri",
+                "constraint": {
+                  "options": {
+                    "scheme": [
+                      "/^http$/",
+                      "/^https$/"
+                    ],
+                    "allowRelative": false,
+                    "relativeOnly": false,
+                    "allowCredentials": false
+                  }
+                }
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "name": "linkToBuild",
+        "type": "url",
+        "title": "LinkToBuild"
+      },
+      {
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "uri",
+                "constraint": {
+                  "options": {
+                    "scheme": [
+                      "/^http$/",
+                      "/^https$/"
+                    ],
+                    "allowRelative": false,
+                    "relativeOnly": false,
+                    "allowCredentials": false
+                  }
+                }
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "name": "githubRepoLink",
+        "type": "url",
+        "title": "GitHub Repo Link"
+      }
+    ],
+    "name": "projects",
+    "type": "document"
+  }
+]
